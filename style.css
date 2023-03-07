@@ -1,0 +1,176 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f5f5f5;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+canvas {
+  border: 2px solid black;
+}
+
+.toolbox {
+  background-color: black;
+  border: 1px solid slateblue;
+  display: flex;
+  width: 804px;
+  padding: 1rem;
+}
+
+.toolbox > * {
+  background-color: #fff;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  height: 50px;
+  width: 50px;
+  margin: 0.25rem;
+  padding: 0.25rem;
+  cursor: pointer;
+}
+.toolbox > * {
+  width: 70px;
+  height: 50px;
+  background: #fff;
+  border: none;
+  border-bottom: 6px solid #47484b;
+  padding: 16px;
+  border-radius: 4px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #000;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 0px;
+  transition: all 0.1s;
+  outline: none;
+}
+.toolbox > *:hover {
+  margin-top: 2px;
+  border-bottom-width: 3px;
+  cursor: pointer;
+}
+.toolbox > *:active {
+  margin-top: 5px;
+  border-bottom-width: 0px;
+}
+/* #eraser {
+  width: 70px;
+  height: 50px;
+  background: #fff;
+  border: none;
+  border-bottom: 6px solid #47484b;
+  padding: 16px;
+  border-radius: 4px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #000;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 0px;
+  transition: all 0.1s;
+  outline: none;
+}
+#eraser:hover {
+  margin-top: 2px;
+  border-bottom-width: 3px;
+  cursor: pointer;
+}
+#eraser:active {
+  margin-top: 5px;
+  border-bottom-width: 0px;
+}
+#clear {
+  width: 70px;
+  height: 50px;
+  background: #fff;
+  border: none;
+  border-bottom: 6px solid #47484b;
+  padding: 16px;
+  border-radius: 4px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #000;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 0px;
+  transition: all 0.1s;
+  outline: none;
+}
+#clear:hover {
+  margin-top: 2px;
+  border-bottom-width: 3px;
+  cursor: pointer;
+}
+#clear:active {
+  margin-top: 5px;
+  border-bottom-width: 0px;
+}
+#decrease {
+  width: 50px;
+  height: 50px;
+  background: #fff;
+  border: none;
+  border-bottom: 6px solid #47484b;
+  padding: 16px;
+  border-radius: 4px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #000;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 0px;
+  transition: all 0.1s;
+  outline: none;
+}
+#decrease:hover {
+  margin-top: 2px;
+  border-bottom-width: 3px;
+  cursor: pointer;
+}
+#decrease:active {
+  margin-top: 5px;
+  border-bottom-width: 0px;
+}
+#increase {
+  width: 50px;
+  height: 50px;
+  background: #fff;
+  border: none;
+  border-bottom: 6px solid #47484b;
+  padding: 16px;
+  border-radius: 4px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #000;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 0px;
+  transition: all 0.1s;
+  outline: none;
+}
+#increase:hover {
+  margin-top: 2px;
+  border-bottom-width: 3px;
+  cursor: pointer;
+}
+#increase:active {
+  margin-top: 5px;
+  border-bottom-width: 0px;
+}
+ */
+/* .toolbox > *:last-child {
+  margin-left: auto;
+}
+ */
