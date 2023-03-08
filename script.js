@@ -63,8 +63,75 @@ decreaseBtn.addEventListener("click", () => {
 });
 
 // clear btn
-clearBtn.addEventListener("click", () => {
+/* function setDialogTitle(title) {
+  let tit = document.getElementById("td_title");
+  tit.innerText = title;
+}
+function btnDialogCloss_onClick(btn) {
+  console.log("Dialog Close");
+  let dia = document.getElementById("td_dialog_bg");
+  dia.style.display = "none";
+}
+function ShowDialog() {
+  let dia = document.getElementById("td_dialog_bg");
+  dia.style.display = "flex";
+}
+
+function CloseDialog() {
+  let dia = document.getElementById("td_dialog_bg");
+  dia.style.display = "none";
+}
+function btnDialogCloss_onClick(btn) {
+  console.log("Dialog Close");
+  let dia = document.getElementById("td_dialog_bg");
+  dia.style.display = "none";
+}
+
+function SetDialogTitle(title) {
+  let tit = document.getElementById("td_title");
+  tit.innerText = title;
+}
+
+function SetDialogBodySize(Height, Width) {
+  let bdy = document.getElementById("td_dialog_body");
+  bdy.style.height = Height;
+  bdy.style.width = Width;
+}
+
+function SetDialogBodyContext(body) {
+  let bdy = document.getElementById("td_dialog_body");
+  bdy.textContent = "";
+  bdy.appendChild(body);
+  //bdy.innerHTML = body;
+}
+
+function Clear() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+  CloseDialog();
+} */
+let clearInfo = document.querySelector("#clearInfo");
+let no = document.querySelector("#no");
+let yes = document.querySelector("#yes");
+let X = document.querySelector("#X");
+clearBtn.addEventListener("click", () => {
+  let dia = document.getElementById("clearInfo");
+  dia.style.display = "flex";
+  clearInfo.showModal();
+  yes.addEventListener("click", () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    dia.style.display = "none";
+
+    clearInfo.close();
+  });
+  no.addEventListener("click", () => {
+    dia.style.display = "none";
+
+    clearInfo.close();
+  });
+  X.addEventListener("click", () => {
+    dia.style.display = "none";
+    clearInfo.close();
+  });
 });
 
 // eraser btn
