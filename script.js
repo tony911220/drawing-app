@@ -63,52 +63,6 @@ decreaseBtn.addEventListener("click", () => {
 });
 
 // clear btn
-/* function setDialogTitle(title) {
-  let tit = document.getElementById("td_title");
-  tit.innerText = title;
-}
-function btnDialogCloss_onClick(btn) {
-  console.log("Dialog Close");
-  let dia = document.getElementById("td_dialog_bg");
-  dia.style.display = "none";
-}
-function ShowDialog() {
-  let dia = document.getElementById("td_dialog_bg");
-  dia.style.display = "flex";
-}
-
-function CloseDialog() {
-  let dia = document.getElementById("td_dialog_bg");
-  dia.style.display = "none";
-}
-function btnDialogCloss_onClick(btn) {
-  console.log("Dialog Close");
-  let dia = document.getElementById("td_dialog_bg");
-  dia.style.display = "none";
-}
-
-function SetDialogTitle(title) {
-  let tit = document.getElementById("td_title");
-  tit.innerText = title;
-}
-
-function SetDialogBodySize(Height, Width) {
-  let bdy = document.getElementById("td_dialog_body");
-  bdy.style.height = Height;
-  bdy.style.width = Width;
-}
-
-function SetDialogBodyContext(body) {
-  let bdy = document.getElementById("td_dialog_body");
-  bdy.textContent = "";
-  bdy.appendChild(body);
-  //bdy.innerHTML = body;
-}
-
-function Clear() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  CloseDialog();
-} */
 let clearInfo = document.querySelector("#clearInfo");
 let no = document.querySelector("#no");
 let yes = document.querySelector("#yes");
@@ -116,21 +70,15 @@ let X = document.querySelector("#X");
 clearBtn.addEventListener("click", () => {
   let dia = document.getElementById("clearInfo");
   dia.style.display = "flex";
-  clearInfo.showModal();
   yes.addEventListener("click", () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     dia.style.display = "none";
-
-    clearInfo.close();
   });
   no.addEventListener("click", () => {
     dia.style.display = "none";
-
-    clearInfo.close();
   });
   X.addEventListener("click", () => {
     dia.style.display = "none";
-    clearInfo.close();
   });
 });
 
@@ -139,8 +87,13 @@ eraserBtn.addEventListener("click", () => {
   if (pen == 1) pen = 0;
   else pen = 1;
 
-  if (pen == 1) document.getElementById("canvas").style.cursor = "pointer";
-  else document.getElementById("canvas").style.cursor = "auto";
+  if (pen == 1) {
+    document.getElementById("canvas").style.cursor = "pointer";
+    eraserBtn.style.background = "#47484b";
+  } else {
+    document.getElementById("canvas").style.cursor = "auto";
+    eraserBtn.style.background = "#ffffff";
+  }
 });
 
 // color selector
@@ -160,4 +113,47 @@ function downloadImg() {
 }
 download.addEventListener("click", () => {
   downloadImg();
+});
+
+let add_input_box = null;
+// text btn
+text.addEventListener("click", () => {
+  canvas.addEventListener(
+    "click",
+    (add_input_box = (e) => {
+      let txt = document.createElement("div"); // create a new tag
+      let txtX = e.offsetX; // x for canvas drawing
+      let txtY = e.offsetY; // y for canvas drawing
+
+      txt.setAttribute("id", "txt");
+      txt.style =
+        "position: absolute; top: " +
+        e.clientY +
+        "px; left: " +
+        e.clientX +
+        "px; background-color: white; ";
+      txt.innerHTML =
+        '<input type="text" id="txt_input" style="font-size:' +
+        size +
+        'px; "/>';
+      document.getElementById("bdy").appendChild(txt);
+
+      document.getElementById("txt_input").focus(); // focus on txt_input
+      document.getElementById("txt_input").addEventListener("blur", () => {
+        let txtContent = document.getElementById("txt_input").value;
+        document
+          .getElementById("bdy")
+          .removeChild(document.getElementById("txt")); // remove txt
+
+        // draw txt_input on canvas
+        ctx.beginPath();
+        ctx.font = size + "px georgia";
+        ctx.fillStyle = color;
+        ctx.fillText(txtContent, txtX, txtY);
+        ctx.stroke();
+        // remove the eventListener
+        canvas.removeEventListener("click", add_input_box);
+      });
+    })
+  );
 });
