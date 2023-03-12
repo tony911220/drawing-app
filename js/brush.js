@@ -37,9 +37,22 @@ function drawLine(x1, y1, x2, y2) {
   } else if (pen == eraser) {
     ctx.lineCap = "round"; // 線條兩端圓弧
     ctx.lineJoin = "round"; // 線條折角圓弧
-    ctx.clearRect(x1, y1, size, size);
+
+    clearCircle(x, y, size);
+    //ctx.clearRect(x1, y1, size, size);
     x = x2;
     y = y2;
+  }
+}
+function clearCircle(x, y, r) {
+  for (var i = 0; i < Math.round(Math.PI * r); i++) {
+    var angle = (i / Math.round(Math.PI * r)) * 360;
+    ctx.clearRect(
+      x,
+      y,
+      Math.sin(angle * (Math.PI / 180)) * r,
+      Math.cos(angle * (Math.PI / 180)) * r
+    );
   }
 }
 // color selector
